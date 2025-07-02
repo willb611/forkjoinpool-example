@@ -19,6 +19,7 @@ ext {
     slf4jVersion = "2.0.17"
     logbackVersion = '1.5.13'
     lombokVersion = '1.18.38'
+    springBootVersion = '3.3.4'
 }
 
 dependencies {
@@ -29,10 +30,28 @@ dependencies {
 
     // This dependency is used by the application.
 //    implementation libs.guava
+    implementation "org.springframework.boot:spring-boot:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-tomcat:$springBootVersion"
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.3.0")
+
+    implementation "ch.qos.logback.access:logback-access-common:2.0.6"
+    implementation ("ch.qos.logback.access:logback-access-tomcat:2.0.6") {
+        exclude group: 'org.apache.tomcat', module: 'tomcat-catalina'
+        exclude group: 'org.apache.tomcat', module: 'tomcat-coyote'
+    }
+    implementation "ch.qos.logback:logback-access:${logbackVersion}"
+    implementation "ch.qos.logback:logback-core:${logbackVersion}"
+    implementation "ch.qos.logback:logback-classic:${logbackVersion}"
+
     implementation "org.slf4j:slf4j-api:$slf4jVersion"
-    implementation "ch.qos.logback:logback-classic:$logbackVersion"
+
     implementation "org.projectlombok:lombok:$lombokVersion"
     annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    implementation "org.eclipse.jetty:jetty-server:12.0.22"
+    implementation 'org.wiremock:wiremock:3.13.1'
+//    implementation "jakarta.servlet:jakarta.servlet-api:6.0.0'"
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

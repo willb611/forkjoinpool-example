@@ -1,4 +1,4 @@
-package org.example.config.tasks;
+package org.example.config;
 
 import lombok.Data;
 
@@ -6,14 +6,23 @@ import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 
 @Data
-public class ExampleConfig {
+public class TaskConfig {
   int minSleepPerTask = 30;
   int maxSleepPerTask = 100;
   TemporalUnit sleepTimeUnit = ChronoUnit.SECONDS;
 
   int totalTasks = 1000;
+  ServerType serverType = ServerType.JETTY;
 
   public int getVariableSleepPerTask() {
     return maxSleepPerTask - minSleepPerTask;
+  }
+
+  public int getMeanSleepPerTask() {
+    return (int)((minSleepPerTask + maxSleepPerTask) / 2.0);
+  }
+  public enum ServerType {
+    JETTY,
+    WIREMOCK
   }
 }
