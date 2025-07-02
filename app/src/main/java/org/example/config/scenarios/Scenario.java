@@ -11,6 +11,8 @@ import java.util.List;
 public enum Scenario {
   DEFAULT(ForkJoinProperties.DEFAULT, TaskProperties.DEFAULT),
   FAST(ForkJoinProperties.DEFAULT, TaskProperties.builder().sleepTimeUnit(ChronoUnit.MILLIS).build()),
+  HUNDRED_TASKS_AT_ONCE(ForkJoinProperties.builder().targetParallelism(100).build(), TaskProperties.DEFAULT),
+  TEN_TASKS_AT_ONCE_FOR_ONE_HUNDRED(ForkJoinProperties.builder().targetParallelism(10).build(), TaskProperties.builder().totalTasks(100).build()),
 
   LIMITED(ForkJoinProperties.builder()
           .minRunnable(1)

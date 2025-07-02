@@ -20,7 +20,6 @@ public class TaskProperties {
 
   @Builder.Default
   int totalTasks = 1000;
-  ServerType serverType = ServerType.JETTY;
 
   public int getVariableSleepPerTask() {
     return maxSleepPerTask - minSleepPerTask;
@@ -28,9 +27,5 @@ public class TaskProperties {
 
   public int getMeanSleepPerTask() {
     return (int)((minSleepPerTask + maxSleepPerTask) / 2.0);
-  }
-  public enum ServerType {
-    JETTY,
-    WIREMOCK
   }
 }

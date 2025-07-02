@@ -18,7 +18,7 @@ public class HelloEndpoint  {
   @GetMapping(value = V1_HELLO_API_PATH, produces = MediaType.TEXT_PLAIN_VALUE)
   public String hello(@RequestParam(name = "description", required = false) String taskDescription) {
     long timeToSleepMillis = sleepHelper.getTimeToSleepMillis();
-    log.info("Sleeping for {} from {} for request {}", timeToSleepMillis, V1_HELLO_API_PATH, taskDescription);
+    log.info("Sleeping for {} milliseconds from {} for request {}", timeToSleepMillis, V1_HELLO_API_PATH, taskDescription);
     try {
       Thread.sleep(timeToSleepMillis);
     } catch (InterruptedException e) {

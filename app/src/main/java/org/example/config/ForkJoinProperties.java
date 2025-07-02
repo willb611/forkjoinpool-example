@@ -3,6 +3,9 @@ package org.example.config;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Config for {@link java.util.concurrent.ForkJoinPool}
+ */
 @Builder
 @Data
 public class ForkJoinProperties {

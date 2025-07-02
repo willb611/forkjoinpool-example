@@ -24,7 +24,7 @@ public class ScenarioProvider {
     Scenario result = arguments.getOptionNames().stream()
         .flatMap(name -> Scenario.scenarioList().stream().filter(scenario -> scenario.name().equals(name)))
         .findFirst()
-        .orElse(Scenario.DEFAULT);
+        .orElse(Scenario.TEN_TASKS_AT_ONCE_FOR_ONE_HUNDRED);
     log.info("For arguments {} chosen scenario: {}", arguments.getOptionNames(), result);
     return result;
   }

@@ -5,6 +5,7 @@ import org.example.client.HelloClient;
 import org.example.tasks.SlowHttpRequestTask;
 import org.springframework.stereotype.Component;
 
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
@@ -15,6 +16,7 @@ public class TaskFactory {
 
   public SlowHttpRequestTask createTask() {
     String description = "task-" + counter.getAndIncrement();
-    return new SlowHttpRequestTask(helloClient, description);
+    Random r = new Random();
+    return new SlowHttpRequestTask(helloClient, description, r.nextBoolean());
   }
 }
