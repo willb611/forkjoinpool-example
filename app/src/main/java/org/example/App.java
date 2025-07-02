@@ -3,12 +3,11 @@
  */
 package org.example;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import org.example.config.tasks.ExampleConfig;
 
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        ExampleConfig exampleConfig = new ExampleConfig();
+        new Example(exampleConfig).start();
     }
 }
