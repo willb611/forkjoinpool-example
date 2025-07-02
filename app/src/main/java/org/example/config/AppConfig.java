@@ -24,7 +24,7 @@ public class AppConfig {
   }
 
   @Bean
-  public TaskFactory taskFactory(SleepHelper sleepHelper, HelloClient helloClient) {
-    return new TaskFactory(sleepHelper, helloClient);
+  public TaskFactory taskFactory(HelloClient helloClient) {
+    return new TaskFactory(helloClient);
   }
 }

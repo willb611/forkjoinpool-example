@@ -12,13 +12,14 @@ public class ForkJoinPoolFactory {
 
   public ForkJoinPool createForkJoinPool() {
     CustomForkJoinWorkerThreadFactory threadFactory = new CustomForkJoinWorkerThreadFactory("customForkJoinPool");
-    int parallelism = 60;
-    int corePoolSize = 100;
-    int maxPoolSize = 200;
+    int minRunnable = 15;
+    int corePoolSize = 1;
+    int maxPoolSize = 1000;
+    int parallelism = 10; // parallelism must not be greater than maxPoolSize. With blocking IO calls, this is the only one that matters really.
     int defaultForkJoinKeepAlive = 360;
     log.info("parallelism: {}, corePoolSize: {}, maxPoolSize: {}, defaultKeepAlive: {}",
         parallelism, corePoolSize, maxPoolSize, defaultForkJoinKeepAlive);
     return new ForkJoinPool(parallelism, threadFactory, null, true, corePoolSize, maxPoolSize,
-        1,null, defaultForkJoinKeepAlive, TimeUnit.MILLISECONDS);
+        minRunnable,null, defaultForkJoinKeepAlive, TimeUnit.MILLISECONDS);
   }
 }
