@@ -1,16 +1,24 @@
 package org.example.config;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 
 @Data
+@Builder
 public class TaskConfig {
+  public static final TaskConfig DEFAULT = TaskConfig.builder().build();
+
+  @Builder.Default
   int minSleepPerTask = 30;
+  @Builder.Default
   int maxSleepPerTask = 100;
+  @Builder.Default
   TemporalUnit sleepTimeUnit = ChronoUnit.SECONDS;
 
+  @Builder.Default
   int totalTasks = 1000;
   ServerType serverType = ServerType.JETTY;
 

@@ -2,6 +2,7 @@ package org.example.factories;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
+import org.example.config.ForkJoinConfig;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
@@ -10,16 +11,11 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class ForkJoinPoolFactory {
 
-  public ForkJoinPool createForkJoinPool() {
+  public ForkJoinPool createForkJoinPool(ForkJoinConfig config) {
     CustomForkJoinWorkerThreadFactory threadFactory = new CustomForkJoinWorkerThreadFactory("customForkJoinPool");
-    int minRunnable = 15;
-    int corePoolSize = 1;
-    int maxPoolSize = 1000;
-    int parallelism = 10; // parallelism must not be greater than maxPoolSize. With blocking IO calls, this is the only one that matters really.
-    int defaultForkJoinKeepAlive = 360;
-    log.info("parallelism: {}, corePoolSize: {}, maxPoolSize: {}, defaultKeepAlive: {}",
-        parallelism, corePoolSize, maxPoolSize, defaultForkJoinKeepAlive);
-    return new ForkJoinPool(parallelism, threadFactory, null, true, corePoolSize, maxPoolSize,
-        minRunnable,null, defaultForkJoinKeepAlive, TimeUnit.MILLISECONDS);
+    log.info("forkJoinConfig: {}", config);
+    return new ForkJoinPool(config.getTargetParallelism(), threadFactory, null, true, config.getCorePoolSize(),
+        config.getMaxPoolSize(),
+        config.getMinRunnable(),null, config.getKeepAliveMillis(), TimeUnit.MILLISECONDS);
   }
 }

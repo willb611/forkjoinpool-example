@@ -23,8 +23,6 @@ public class App {
         ApplicationContext applicationContext = SpringApplication.run(App.class, args);
         TaskScheduler taskScheduler = applicationContext.getBean(TaskScheduler.class);
         taskScheduler.init();
-        WiremockConfig wiremockConfig = applicationContext.getBean(WiremockConfig.class);
-        wiremockConfig.logRequests();
     }
 
     public App() {

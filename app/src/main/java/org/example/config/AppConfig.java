@@ -13,14 +13,9 @@ import java.util.concurrent.ForkJoinPool;
 @Slf4j
 public class AppConfig {
   @Bean
-  public TaskConfig exampleConfig() {
-    return new TaskConfig();
-  }
-
-  @Bean
-  public ForkJoinPool forkJoinPool() {
-    log.info("Creating ForkJoinPool");
-    return ForkJoinPoolFactory.createForkJoinPool();
+  public ForkJoinPool forkJoinPool(ForkJoinConfig forkJoinConfig) {
+    log.info("Creating ForkJoinPool for forkJoinConfig: {}", forkJoinConfig);
+    return ForkJoinPoolFactory.createForkJoinPool(forkJoinConfig);
   }
 
   @Bean
