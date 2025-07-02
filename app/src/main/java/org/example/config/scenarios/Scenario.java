@@ -15,7 +15,7 @@ public enum Scenario {
   TEN_TASKS_AT_ONCE_FOR_ONE_HUNDRED(ForkJoinProperties.builder().targetParallelism(10).build(), TaskProperties.builder().totalTasks(100).build()),
 
   LIMITED(ForkJoinProperties.builder()
-          .minRunnable(1)
+          .minimumRunnable(1)
           .corePoolSize(5)
           .maxPoolSize(10)
           .description("limited, uses all 10 threads")
@@ -24,7 +24,7 @@ public enum Scenario {
           .totalTasks(100).build()
       ),
   REJECTION_ERRORS(ForkJoinProperties.builder()
-      .minRunnable(10)
+      .minimumRunnable(10)
       .corePoolSize(10)
       .maxPoolSize(10)
       .description("errors for more than 10 tasks")
@@ -33,7 +33,7 @@ public enum Scenario {
   ),
 
   ANOTHER_ERROR_CONFIG(ForkJoinProperties.builder()
-      .minRunnable(1)
+      .minimumRunnable(1)
       .corePoolSize(5)
       .maxPoolSize(10)
       .targetParallelism(5)

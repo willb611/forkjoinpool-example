@@ -12,11 +12,21 @@ public class ForkJoinProperties {
   @Builder.Default
   String description = "default";
 
+  /**
+   * minimumRunnable the minimum allowed number of core
+   *      * threads not blocked by a join or {@link java.util.concurrent.ForkJoinPool.ManagedBlocker}.
+   *      * To ensure progress, when too few unblocked threads exist and
+   *      * unexecuted tasks may exist, new threads are constructed, up to
+   *      * the given maximumPoolSize.  For the default value, use {@code
+   *      * 1}, that ensures liveness.
+   */
   // setting minRunnable too close to maxPoolSize will result in errors for lots of tasks
   // java.util.concurrent.RejectedExecutionException: Thread limit exceeded replacing blocked worker
   @Builder.Default
-  int minRunnable = 1;
-  //  the number of threads to keep in the pool (unless timed out after an elapsed keep-alive). Normally (and by default) this is the same value as the parallelism level, but may be set to a larger value to reduce dynamic overhead if tasks regularly block. Using a smaller value (for example 0) has the same effect as the default.
+  int minimumRunnable = 1;
+  /**
+   * the number of threads to keep in the pool (unless timed out after an elapsed keep-alive). Normally (and by default) this is the same value as the parallelism level, but may be set to a larger value to reduce dynamic overhead if tasks regularly block. Using a smaller value (for example 0) has the same effect as the default.
+   */
   @Builder.Default
   int corePoolSize = 1;
   @Builder.Default

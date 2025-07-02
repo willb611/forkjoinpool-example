@@ -16,6 +16,6 @@ public class ForkJoinPoolFactory {
     log.info("forkJoinConfig: {}", config);
     return new ForkJoinPool(config.getTargetParallelism(), threadFactory, null, true, config.getCorePoolSize(),
         config.getMaxPoolSize(),
-        config.getMinRunnable(),null, config.getKeepAliveMillis(), TimeUnit.MILLISECONDS);
+        config.getMinimumRunnable(),null, config.getKeepAliveMillis(), TimeUnit.MILLISECONDS);
   }
 }
