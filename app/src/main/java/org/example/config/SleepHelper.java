@@ -10,14 +10,14 @@ import java.util.Random;
 @RequiredArgsConstructor
 public class SleepHelper {
   private final Random random = new Random();
-  private final TaskConfig taskConfig;
+  private final TaskProperties taskProperties;
 
   public long getTimeToSleepMillis() {
     return getTimeToSleep().toMillis();
   }
 
   public Duration getTimeToSleep() {
-    long amount = taskConfig.getMinSleepPerTask() + random.nextInt(taskConfig.getVariableSleepPerTask());
-    return Duration.of(amount, taskConfig.getSleepTimeUnit());
+    long amount = taskProperties.getMinSleepPerTask() + random.nextInt(taskProperties.getVariableSleepPerTask());
+    return Duration.of(amount, taskProperties.getSleepTimeUnit());
   }
 }

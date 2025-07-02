@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Builder
 @Data
-public class ForkJoinConfig {
+public class ForkJoinProperties {
   @Builder.Default
   String description = "default";
 
@@ -27,5 +27,5 @@ public class ForkJoinConfig {
 
   public static final int DEFAULT_KEEP_ALIVE_MILLIS = 3600;
 
-  public static ForkJoinConfig DEFAULT = ForkJoinConfig.builder().build();
+  public static ForkJoinProperties DEFAULT = ForkJoinProperties.builder().build();
 }

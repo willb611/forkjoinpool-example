@@ -2,7 +2,7 @@ package org.example;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.config.TaskConfig;
+import org.example.config.TaskProperties;
 import org.example.tasks.SlowHttpRequestTask;
 import org.example.factories.TaskFactory;
 import org.springframework.context.annotation.Lazy;
@@ -18,7 +18,7 @@ import java.util.concurrent.ForkJoinPool;
 @Component
 public class TaskScheduler {
   @Lazy
-  private final TaskConfig taskConfig;
+  private final TaskProperties taskProperties;
   @Lazy
   private final ForkJoinPool forkJoinPool;
   @Lazy
@@ -30,7 +30,7 @@ public class TaskScheduler {
 
   private void triggerTasks() {
     List<SlowHttpRequestTask> tasks = new ArrayList<>();
-    for (int i = 0; i < taskConfig.getTotalTasks(); i++) {
+    for (int i = 0; i < taskProperties.getTotalTasks(); i++) {
       tasks.add(taskFactory.createTask());
     }
     log.info("Created {} tasks, about to submit them all", tasks.size());

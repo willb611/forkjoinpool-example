@@ -8,8 +8,8 @@ import java.time.temporal.TemporalUnit;
 
 @Data
 @Builder
-public class TaskConfig {
-  public static final TaskConfig DEFAULT = TaskConfig.builder().build();
+public class TaskProperties {
+  public static final TaskProperties DEFAULT = TaskProperties.builder().build();
 
   @Builder.Default
   int minSleepPerTask = 30;

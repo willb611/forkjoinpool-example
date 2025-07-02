@@ -1,6 +1,8 @@
-package org.example.config;
+package org.example.config.scenarios;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.config.ForkJoinProperties;
+import org.example.config.TaskProperties;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,13 +11,13 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class ScenarioProvider {
   @Bean
-  public TaskConfig taskConfig(ApplicationArguments args) {
-    return getScenarioFor(args).getTaskConfig();
+  public TaskProperties taskConfig(ApplicationArguments args) {
+    return getScenarioFor(args).getTaskProperties();
   }
 
   @Bean
-  public ForkJoinConfig forkJoinConfig(ApplicationArguments args) {
-    return getScenarioFor(args).getForkJoinConfig();
+  public ForkJoinProperties forkJoinConfig(ApplicationArguments args) {
+    return getScenarioFor(args).getForkJoinProperties();
   }
 
   public static Scenario getScenarioFor(ApplicationArguments arguments) {
