@@ -1,8 +1,8 @@
-package org.example.config.scenarios;
+package com.github.willb611.config.scenarios;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.config.ForkJoinProperties;
-import org.example.config.TaskProperties;
+import com.github.willb611.config.ForkJoinProperties;
+import com.github.willb611.config.TaskProperties;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

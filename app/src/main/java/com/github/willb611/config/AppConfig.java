@@ -1,9 +1,9 @@
-package org.example.config;
+package com.github.willb611.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.client.HelloClient;
-import org.example.factories.ForkJoinPoolFactory;
-import org.example.factories.TaskFactory;
+import com.github.willb611.client.HelloClient;
+import com.github.willb611.factories.ForkJoinPoolFactory;
+import com.github.willb611.factories.TaskFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

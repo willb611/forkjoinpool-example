@@ -1,4 +1,4 @@
-package org.example.server.endpoints;
+package com.github.willb611.server.endpoints;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.GetMapping;

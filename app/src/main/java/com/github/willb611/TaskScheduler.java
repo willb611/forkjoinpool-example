@@ -1,10 +1,10 @@
-package org.example;
+package com.github.willb611;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.config.TaskProperties;
-import org.example.tasks.SlowHttpRequestTask;
-import org.example.factories.TaskFactory;
+import com.github.willb611.config.TaskProperties;
+import com.github.willb611.tasks.SlowHttpRequestTask;
+import com.github.willb611.factories.TaskFactory;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 

@@ -1,8 +1,8 @@
-package org.example.factories;
+package com.github.willb611.factories;
 
 import lombok.RequiredArgsConstructor;
-import org.example.client.HelloClient;
-import org.example.tasks.SlowHttpRequestTask;
+import com.github.willb611.client.HelloClient;
+import com.github.willb611.tasks.SlowHttpRequestTask;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;

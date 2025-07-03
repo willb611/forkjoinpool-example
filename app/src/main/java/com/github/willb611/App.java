@@ -1,10 +1,9 @@
-package org.example;
+package com.github.willb611;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.example.client.HelloClient;
-import org.example.config.AppConfig;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.github.willb611.client.HelloClient;
+import com.github.willb611.config.AppConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;

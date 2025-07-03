@@ -1,8 +1,8 @@
-package org.example.server.endpoints;
+package com.github.willb611.server.endpoints;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.config.SleepHelper;
+import com.github.willb611.config.SleepHelper;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

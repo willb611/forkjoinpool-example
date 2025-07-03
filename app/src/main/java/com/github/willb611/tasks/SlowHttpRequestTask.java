@@ -1,8 +1,8 @@
-package org.example.tasks;
+package com.github.willb611.tasks;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.client.HelloClient;
+import com.github.willb611.client.HelloClient;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;

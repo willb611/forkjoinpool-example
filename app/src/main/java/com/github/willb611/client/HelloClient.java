@@ -1,4 +1,4 @@
-package org.example.client;
+package com.github.willb611.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;

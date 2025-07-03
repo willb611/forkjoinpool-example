@@ -1,4 +1,4 @@
-package org.example.server;
+package com.github.willb611.server;
 
 import ch.qos.logback.access.tomcat.LogbackValve;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;

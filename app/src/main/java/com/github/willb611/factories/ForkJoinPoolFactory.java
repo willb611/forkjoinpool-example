@@ -1,8 +1,8 @@
-package org.example.factories;
+package com.github.willb611.factories;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
-import org.example.config.ForkJoinProperties;
+import com.github.willb611.config.ForkJoinProperties;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;

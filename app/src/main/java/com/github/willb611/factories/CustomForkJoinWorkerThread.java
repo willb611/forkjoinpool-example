@@ -1,4 +1,4 @@
-package org.example.factories;
+package com.github.willb611.factories;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinWorkerThread;

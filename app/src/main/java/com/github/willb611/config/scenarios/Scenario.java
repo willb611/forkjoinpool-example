@@ -1,8 +1,8 @@
-package org.example.config.scenarios;
+package com.github.willb611.config.scenarios;
 
 import lombok.Getter;
-import org.example.config.ForkJoinProperties;
-import org.example.config.TaskProperties;
+import com.github.willb611.config.ForkJoinProperties;
+import com.github.willb611.config.TaskProperties;
 
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;

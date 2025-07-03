@@ -1,4 +1,4 @@
-package org.example.factories;
+package com.github.willb611.factories;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

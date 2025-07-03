@@ -1,4 +1,4 @@
-package org.example.config;
+package com.github.willb611.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
