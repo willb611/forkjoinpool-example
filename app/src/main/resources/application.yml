@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: forkjoin-example
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 120000
+            readTimeout: 120000
+            loggerLevel: full
+
+server:
+  error:
+    whitelabel:
+      enabled: false
