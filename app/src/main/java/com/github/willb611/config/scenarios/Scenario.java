@@ -14,6 +14,9 @@ public enum Scenario {
   HUNDRED_TASKS_AT_ONCE(ForkJoinProperties.builder().targetParallelism(100).build(), TaskProperties.DEFAULT),
   TEN_TASKS_AT_ONCE_FOR_ONE_HUNDRED(ForkJoinProperties.builder().targetParallelism(10).build(), TaskProperties.builder().totalTasks(100).build()),
 
+  WITH_MANAGED_BLOCKING_RESULTS_SOME_ERRORS(ForkJoinProperties.builder().targetParallelism(10).maxPoolSize(10).build(),
+      TaskProperties.builder().totalTasks(50).taskIntegratesWithFJPBlockingMode(true).build()),
+
   LIMITED(ForkJoinProperties.builder()
           .minimumRunnable(1)
           .corePoolSize(5)

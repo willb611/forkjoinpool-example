@@ -19,7 +19,7 @@ public class AppConfig {
   }
 
   @Bean
-  public TaskFactory taskFactory(HelloClient helloClient) {
-    return new TaskFactory(helloClient);
+  public TaskFactory taskFactory(TaskProperties taskProperties, HelloClient helloClient) {
+    return new TaskFactory(helloClient, taskProperties);
   }
 }

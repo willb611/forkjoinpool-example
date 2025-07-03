@@ -20,6 +20,10 @@ public class TaskProperties {
 
   @Builder.Default
   int totalTasks = 1000;
+  @Builder.Default
+  boolean onlySomeTasksMakeApiCall = false;
+  @Builder.Default
+  boolean taskIntegratesWithFJPBlockingMode = false;
 
   public int getVariableSleepPerTask() {
     return maxSleepPerTask - minSleepPerTask;

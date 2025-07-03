@@ -1,5 +1,6 @@
 package com.github.willb611.factories;
 
+import com.github.willb611.config.TaskProperties;
 import lombok.RequiredArgsConstructor;
 import com.github.willb611.client.HelloClient;
 import com.github.willb611.tasks.SlowHttpRequestTask;
@@ -12,11 +13,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 @RequiredArgsConstructor
 public class TaskFactory {
   private final HelloClient helloClient;
+  private final TaskProperties taskProperties;
   private final AtomicInteger counter = new AtomicInteger(0);
+  private final Random random = new Random();
 
   public SlowHttpRequestTask createTask() {
     String description = "task-" + counter.getAndIncrement();
-    Random r = new Random();
-    return new SlowHttpRequestTask(helloClient, description, r.nextBoolean());
+    boolean taskMakesApiCall = true;
+    if (taskProperties.isOnlySomeTasksMakeApiCall()) {
+      taskMakesApiCall = random.nextBoolean();
+    }
+    return SlowHttpRequestTask.builder()
+        .requiresBlockingIO(taskMakesApiCall)
+        .taskDescription(description)
+        .helloClient(helloClient)
+        .integratesWithFJPManagedBlock(taskProperties.isTaskIntegratesWithFJPBlockingMode())
+        .build();
   }
 }
