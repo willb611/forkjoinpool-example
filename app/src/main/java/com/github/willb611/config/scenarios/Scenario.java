@@ -7,6 +7,7 @@ import com.github.willb611.config.TaskProperties;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public enum Scenario {
   DEFAULT(ForkJoinProperties.DEFAULT, TaskProperties.DEFAULT),
@@ -57,5 +58,13 @@ public enum Scenario {
 
   public static List<Scenario> scenarioList() {
     return Arrays.asList(values());
+  }
+
+  public static List<String> scenarioNames() {
+    return Scenario.scenarioList().stream().map(Scenario::name).toList();
+  }
+
+  public static Optional<Scenario> forName(String name) {
+    return Scenario.scenarioList().stream().filter(scenario -> scenario.name().equals(name)).findAny();
   }
 }
